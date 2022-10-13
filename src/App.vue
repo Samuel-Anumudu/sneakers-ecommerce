@@ -1,26 +1,48 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="px-4 mx-auto lg:px-14">
+    <Header :carts="carts" />
+    <router-view
+      :carts="carts"
+      @add-to-cart="addToCart"
+      :sneakers="sneakers"
+    ></router-view>
+    <Footer />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  data() {
+    return {
+      sneakers: [],
+      carts: [],
+    };
+  },
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  name: "App",
+
+  components: {
+    Header,
+    Footer,
+  },
+
+  methods: {
+    addToCart: function (cartObject) {
+      this.carts.push({
+        ...this.sneakers.find((sneaker) => sneaker.id === cartObject.id),
+        ...cartObject,
+      });
+    },
+  },
+
+  mounted() {
+    fetch("api/sneakers?_limit=10")
+      .then((res) => res.json())
+      .then((data) => (this.sneakers = data))
+      .catch((err) => console.log(err));
+  },
+};
+</script>

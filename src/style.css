@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.pipe {
+  background-color: #d4d4d4;
+  height: 15px;
+  width: 1px;
+  display: inline-block;
+  margin-inline: 0.375rem;
+  margin-bottom: -2.5px;
+}
+
+.breadcrumbs {
+  color: #333;
+}
+
+.released {
+  color: #a8a6a0;
+}
+button:disabled {
+  color: #e6e6e6;
+}
+.checkout button {
+  background-color: #a8a6a0;
+  transition: background 0.3s ease;
+}
+
+.checkout button:hover {
+  background-color: #555;
+}
+
+.fa-bars {
+  color: #333;
+}
+
+.fa-minus,
+.fa-plus {
+  width: 35px;
+  height: 35px;
+  color: #555;
+  border-radius: 50%;
+}
+
+.fa-minus:hover,
+.fa-plus:hover {
+  background-color: #e6e6e6;
+}
+
+.footer-socials span:hover {
+  color: #333;
+}
+
+button:disabled:hover {
+  background-color: transparent;
+}
+
+.input-bordered {
+  border: 1px solid #e0e0e0;
+}
+
+.input-bordered::placeholder {
+  color: #b2b2b2;
+}
+
+.signup p,
+.made-with-love {
+  color: #333;
+}
+.fade-in {
+  transition: all 0.2s;
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+}
+
+.image-in-cart img {
+  object-fit: cover;
+  object-position: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
