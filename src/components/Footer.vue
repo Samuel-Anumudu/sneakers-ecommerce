@@ -7,7 +7,7 @@
         <span class="fa-brands fa-instagram text-xl cursor-pointer"></span>
         <span class="fa-brands fa-twitter text-xl cursor-pointer"></span>
       </div>
-      <div class="signup text-center font-Poppins pb-10">
+      <div class="signup text-center font-Poppins pb-10 hidden lg:block">
         <p class="font-light">Sign up to receive news and updates.</p>
       </div>
       <div class="form-control hidden lg:block">
