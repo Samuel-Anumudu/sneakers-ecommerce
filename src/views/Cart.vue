@@ -17,7 +17,7 @@
     <div v-else class="container lg:pt-12 lg:pb-[10rem] lg:px-10 mx-auto">
       <section
         :key="sneaker.id"
-        v-for="sneaker in newCarts"
+        v-for="(sneaker, index) in newCarts"
         class="individual-sneaker"
       >
         <h2 class="text-[1.5rem] font-Roboto pb-6">Shopping Cart</h2>
@@ -37,19 +37,24 @@
               >
             </div>
           </div>
-          <div class="second-item hidden lg:block">
+
+          <div class="second-item hidden large-screens-only lg:block">
             <button
               :disabled="sneaker.quantity === 1"
               class="fa-solid fa-minus text-xl"
             ></button>
             <span class="mx-5 font-regular">{{ sneaker.quantity }}</span>
-            <button class="fa-solid fa-plus text-xl"></button>
+            <button
+              @click="handleIncrement(sneaker.id)"
+              class="fa-solid fa-plus text-xl"
+            ></button>
           </div>
+
           <div class="third-item price text-[#333]">
             <span class="hidden lg:inline-block">${{ sneaker.price }}.00</span>
 
             <button
-              @click="handleDelete(sneaker.id)"
+              @click="handleDelete(index)"
               class="fa-solid fa-xmark text-xl ml-8 text-[#333]"
             ></button>
           </div>
@@ -109,7 +114,8 @@
 export default {
   data() {
     return {
-      newCarts: [...this.carts],
+      quantity: 1,
+      newCarts: this.carts,
     };
   },
   name: "Cart",
@@ -119,10 +125,20 @@ export default {
   },
 
   methods: {
-    handleDelete: function (id) {
-      if (confirm("You're about to delete sneaker from cart?")) {
-        this.newCarts = this.newCarts.filter((sneaker) => sneaker.id !== id);
-      }
+    handleIncrement: function (id) {
+      console.log(id);
+      // this.newCarts = this.newCarts.map((sneaker) => {
+      //   let newQty = sneaker.quantity + this.quantity;
+      //   if (sneaker.id === id) {
+      //     return {
+      //       ...sneaker,
+      //       quantity: newQty,
+      //     };
+      //   }
+      // });
+    },
+    handleDelete: function (index) {
+      this.newCarts.splice(index, 1);
       this.carts.length = this.newCarts.length;
     },
   },
