@@ -10,7 +10,7 @@
       <div class="signup text-center font-Poppins pb-10">
         <p class="font-light">Sign up to receive news and updates.</p>
       </div>
-      <div class="form-control">
+      <div class="form-control hidden lg:block">
         <div class="input-group flex justify-center">
           <input
             type="email"
@@ -26,7 +26,7 @@
         </div>
       </div>
       <small
-        class="text-center made-with-love block p-16 font-light font-Poppins text-base"
+        class="text-center made-with-love block pb-10 lg:p-16 font-light font-Poppins text-base"
         >Made with love❤️ by
         <a href="https://samuelanumudu.com" target="_blank">Sam</a></small
       >
