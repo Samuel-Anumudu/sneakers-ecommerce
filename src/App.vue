@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 mx-auto lg:px-14">
+  <div class="px-5 mx-auto lg:px-14">
     <Header :carts="carts" />
     <router-view
       :carts="carts"

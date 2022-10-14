@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="container mx-auto px-4">
     <section>
       <div
         class="socials footer-socials text-center pb-16 flex justify-center gap-4"

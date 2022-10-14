@@ -127,18 +127,11 @@ export default {
   methods: {
     handleIncrement: function (id) {
       console.log(id);
-      // this.newCarts = this.newCarts.map((sneaker) => {
-      //   let newQty = sneaker.quantity + this.quantity;
-      //   if (sneaker.id === id) {
-      //     return {
-      //       ...sneaker,
-      //       quantity: newQty,
-      //     };
-      //   }
-      // });
     },
     handleDelete: function (index) {
-      this.newCarts.splice(index, 1);
+      if (confirm("Are you sure you want to delete this item?")) {
+        this.newCarts.splice(index, 1);
+      }
       this.carts.length = this.newCarts.length;
     },
   },
