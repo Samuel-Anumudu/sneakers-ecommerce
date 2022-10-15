@@ -1,7 +1,7 @@
 <template>
   <section>
     <div
-      v-if="!newCarts.length"
+      v-if="!carts.length"
       class="if-empty-cart pb-[6rem] lg:px-14 lg:pt-12 lg:pb-[10rem] text-[#333]"
     >
       <h2 class="text-[1.5rem] font-Roboto">Shopping Cart</h2>
@@ -17,7 +17,7 @@
     <div v-else class="container lg:pt-12 lg:pb-[10rem] lg:px-10 mx-auto">
       <section
         :key="sneaker.id"
-        v-for="(sneaker, index) in newCarts"
+        v-for="(sneaker, index) in carts"
         class="individual-sneaker"
       >
         <h2 class="text-[1.5rem] font-Roboto pb-6">Shopping Cart</h2>
@@ -44,10 +44,7 @@
               class="fa-solid fa-minus text-xl"
             ></button>
             <span class="mx-5 font-regular">{{ sneaker.quantity }}</span>
-            <button
-              @click="handleIncrement(sneaker.id)"
-              class="fa-solid fa-plus text-xl"
-            ></button>
+            <button class="fa-solid fa-plus text-xl"></button>
           </div>
 
           <div class="third-item price text-[#333]">
@@ -59,7 +56,6 @@
             ></button>
           </div>
         </div>
-
         <div
           class="small-screen-only flex justify-end items-center pt-4 lg:hidden"
         >
@@ -71,7 +67,7 @@
             <span class="mx-5 font-regular">{{ sneaker.quantity }}</span>
             <button class="fa-solid fa-plus text-xl"></button>
           </div>
-          <span class="ml-[3.2rem]">${{ sneaker.price }}.00</span>
+          <span class="ml-[3.2rem]">${{ sneaker.price }}</span>
         </div>
         <div class="divider"></div>
       </section>
@@ -112,12 +108,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      quantity: 1,
-      newCarts: this.carts,
-    };
-  },
   name: "Cart",
 
   props: {
@@ -125,20 +115,16 @@ export default {
   },
 
   methods: {
-    handleIncrement: function (id) {
-      console.log(id);
-    },
     handleDelete: function (index) {
       if (confirm("Are you sure you want to delete this item?")) {
-        this.newCarts.splice(index, 1);
+        this.carts.splice(index, 1);
       }
-      this.carts.length = this.newCarts.length;
     },
   },
 
   computed: {
     subtotal() {
-      const totalPrice = this.newCarts
+      const totalPrice = this.carts
         .map((sneaker) => sneaker.price)
         .reduce((accum, curr) => curr + accum, 0);
       return totalPrice;
